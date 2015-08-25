@@ -21,6 +21,21 @@ Template.home.events({
     Session.set("waiting", true);
     Meteor.call("replayGame", Session.get("playerID"));
   },
+  "click button[data-cancel]": function(e, template) {
+    e.preventDefault();
+    IonPopup.confirm({
+      title: "Hey!",
+      template: "Você deseja sair deste jogo?",
+      onOk: function() {
+        Meteor.call("cancelWaitGame", Session.get("playerID"));
+        Session.get("playerID", null);
+        IonPopup.close();
+      },
+      onCancel: function() {
+        IonPopup.close();
+      }
+    });
+  },
   "submit form": function(e, template) {
     e.preventDefault();
     var input = template.find("input");

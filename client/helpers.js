@@ -1,7 +1,3 @@
-Template.registerHelper("currentPlayer", function() {
-  return Players.findOne(Session.get("playerID"));
-});
-
 Template.registerHelper("players", function() {
   return Players.findByMostClicked();
 });
@@ -27,7 +23,30 @@ Template.registerHelper("isFinished", function() {
 });
 
 Template.registerHelper("totalOfClicks", function() {
-  return Players.clicks(Session.get("playerID"));
+  var clicks = Players.clicks(Session.get("playerID"));
+  Session.set("clicks", clicks);
+  return clicks;
+});
+
+Template.registerHelper("clickStatus", function() {
+  var clicks = Session.get("clicks");
+  if (clicks <= 15) {
+    return "DALE! DALE BOMBA!";
+  } else if (clicks > 15 && clicks <= 30) {
+    return "BOA! MUITO TOPZ!";
+  } else if (clicks > 30 && clicks <= 60) {
+    return "UNBELIVABLOUW!!!";
+  } else if (clicks > 60 && clicks <= 90) {
+    return "MUY LOKOOOO!!!";
+  } else if (clicks > 90 && clicks <= 120) {
+    return "TOLE BOMBA! DALE BOMBA!!";
+  } else if (clicks > 120 && clicks <= 150) {
+    return "DEDINHO NERVOSO HEIN!!";
+  } else if (clicks > 150 && clicks <= 180) {
+    return "NIVEL CARANGUEJEIRA!!";
+  } else {
+    return "ABSURDAMENTE TOPZ!!";
+  }
 });
 
 Template.registerHelper("isWinner", function() {

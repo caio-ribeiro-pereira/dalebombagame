@@ -15,7 +15,20 @@ html {
 .content.overflow-scroll { 
   bottom: 0px !important; 
 }
+.button-xlarge {
+  padding: 0 30px;
+  min-height: 200px;
+  font-size: 7em;
+  line-height: 100px;
+}
 .bg-icon {
   font-size: 10em;
-  color: #CCC;
+}
+.bg-effect {
+  transition-property: background;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+}
+.bg-effect:hover {
+  background: #DEDEDE;
 }

@@ -2,13 +2,13 @@
   <div class="list padding">
     <h3 class="text-center dark">
       {{#if isWinner}}           
+        <i class="ion-trophy balanced bg-icon"></i>
+        <br>
         Você ganhou com {{totalOfClicks}} clicks!
-        <br>
-        <i class="ion-android-happy bg-icon"></i>
       {{else}}
-        Você perdeu!
+        <i class="ion-android-sad dark bg-icon"></i>
         <br>
-        <i class="ion-android-sad bg-icon"></i>
+        Você perdeu com {{totalOfClicks}} clicks
       {{/if}}
     </h3>
     <br>
