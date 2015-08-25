@@ -4,6 +4,8 @@
       <i class="ion-speedometer bg-icon"></i>
       <br>
       Tempo: <span data-timer></span>
+      <br>
+      {{clickStatus}}
     </h4>
     <button class="button button-assertive button-xlarge button-block ion-android-sunny" data-click>
       {{#if totalOfClicks}}
@@ -12,7 +14,6 @@
         CLIQUE AQUI!
       {{/if}}
     </button>
-    <h4 class="text-center dark">{{clickStatus}}</h4>
     <audio src="/sounds/click.mp3" preload="auto" data-mp3></audio>
     <audio src="/sounds/click.ogg" preload="auto" data-ogg></audio>
   </div>

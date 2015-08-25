@@ -24,10 +24,5 @@ Template.gameboard.events({
       sound.currentTime = 0;
       sound.play();
     });
-  },
-  "click button[data-play-again]": function(e, template) {
-    e.preventDefault();
-    Session.set("waiting", true);
-    Meteor.call("replayGame", Session.get("playerID"));
   }
 });

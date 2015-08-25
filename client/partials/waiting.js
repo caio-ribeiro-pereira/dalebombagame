@@ -6,7 +6,8 @@ Template.waiting.events({
       template: "Você deseja sair deste jogo?",
       onOk: function() {
         Meteor.call("cancelWaitGame", Session.get("playerID"));
-        Session.get("playerID", null);
+        Session.set("playerID", null);
+        Session.set("waiting", false);
         IonPopup.close();
       },
       onCancel: function() {

@@ -1,9 +1,14 @@
 <template name="finished">
   <div class="list padding">
-    <button class="button button-large button-positive button-block ion-refresh" data-play-again>
-      JOGAR DENOVO?
-    </button>
-    <br><br>
+    <div class="button-bar">
+      <a href="{{pathFor route='ranking'}}" class="button button-large button-calm button-block ion-podium">
+        RANKING
+      </a>
+      <button class="button button-large button-positive button-block ion-refresh" data-play-again>
+        DENOVO?
+      </button>
+    </div>
+    <br>
     <h4 class="text-center dark">
       {{#if isWinner}}           
         <i class="ion-trophy balanced bg-icon"></i>

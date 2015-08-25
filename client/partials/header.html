@@ -1,4 +1,9 @@
 <template name="header">
+  {{#contentFor "headerButtonRight"}}
+    <button class="button button-clear icon ion-navicon-round pull-right" 
+            data-ion-popover="popover">
+    </button>
+  {{/contentFor}}
   {{#contentFor "headerTitle"}}
     <h1 class="title">Dale Bomba Game</h1>
   {{/contentFor}}
