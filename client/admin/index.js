@@ -5,7 +5,11 @@ Template.admin.helpers({
 });
 
 Template.admin.events({
-  "click button": function(e, template) {
+  "click button[data-clear]": function(e, template) {
+    e.preventDefault();
+    Meteor.call("clearGame");
+  },
+  "click button[data-start]": function(e, template) {
     var seconds = 30, intervalID;
     e.preventDefault();
     e.target.disabled = true;

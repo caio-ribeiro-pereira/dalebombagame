@@ -30,6 +30,10 @@ Meteor.methods({
     Players.update({}, {$set: {playing: true, finished: false}}, {multi: true});
     Games.startGame();
   },
+  clearGame: function() {
+    Players.remove({});
+    Games.remove({});
+  },
   clickClickClick: function(_id) {
     check(_id, String);
     Players.update({_id: _id}, {$inc: {clicks: 1}});
