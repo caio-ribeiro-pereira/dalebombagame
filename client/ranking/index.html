@@ -1,0 +1,20 @@
+<template name="ranking">
+  <div class="text-left">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Clicks</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each players}}
+          <tr>
+            <td>{{name}}</td>
+            <td>{{clicks}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</template>
