@@ -1,43 +1,22 @@
 <template name="home">
-  <div class="row">
-    <div class="col-xs-12 col-md-8 col-md-offset-2">
-      <div class="jumbotron text-center">
-        <h1>Dale Bomba Play</h1>
-        {{#if isPlaying}}
-          <h3>GO! GO! GO!</h3>
-          <button class="btn btn-danger btn-lg" data-click>CLICK!</button>
-          <audio src="/sounds/click.mp3" preload="auto" data-mp3></audio>
-          <audio src="/sounds/click.ogg" preload="auto" data-ogg></audio>
-          {{> ranking}}
+  {{> header}}
+  {{#ionView}}
+    {{#ionContent}}
+      {{#if isPlaying}}
+        {{> gameboard}}
+        {{> ranking}}
+      {{else}}
+        {{#if isFinished}}
+          {{> finished}}
         {{else}}
-          {{#if isFinished}}
-            {{#if isWinner}}
-              <h3>Parabéns você ganhou!<br>{{totalOfClicks}} clicks</h3>
-            {{else}}
-              <h3>Infelizmente não foi dessa vez :(</h3>
-            {{/if}}
-            <button class="btn btn-primary btn-lg" data-play-again>
-              JOGAR DENOVO?
-            </button>
+          {{#unless isWaiting}}
+            {{> welcome}}
           {{else}}
-            {{#unless isWaiting}}
-              <p>Game realtime para quem clica mais rápido!</p>
-              <form class="form-horizontal">
-                <input type="text" class="form-control" 
-                  maxlength="10" placeholder="Digite seu nome...">
-                <br>
-                <button class="btn btn-success btn-block">INICIAR</button>
-              </form>
-            {{else}}
-              <h3>
-                Aguardando início do jogo...
-                <br>
-                {{numberOfPlayers}} player(s)
-              </h3>
-            {{/unless}}
-          {{/if}}
+            {{> waiting}}
+          {{/unless}}
         {{/if}}
-      </div>
-    </div>
-  </div>
+      {{/if}}
+    {{/ionContent}}
+    {{> footer}}
+  {{/ionView}}
 </template>

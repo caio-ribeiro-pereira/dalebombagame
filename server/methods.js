@@ -9,13 +9,7 @@ Meteor.methods({
     } else if (!Games.canPlay()) {
       throw new Meteor.Error(412, "Aguarde o próximo jogo!");
     } else {
-      return Players.insert({
-        name: name, 
-        clicks: 0, 
-        playing: false, 
-        finished: false,
-        winner: false
-      });
+      return Players.create(name);
     }
   },
   replayGame: function(_id) {
@@ -23,14 +17,17 @@ Meteor.methods({
     Players.replay(_id);
   },
   stopGame: function() {
-    var winner = Players.getWinner();
-    Players.update({_id: winner._id}, {$set: {winner: true}});
-    Players.update({}, {$set: {playing: false, finished: true}}, {multi: true});
+    Players.winner();
+    Players.finish();
     Games.stopGame();
   },
   startGame: function() {
-    Players.update({}, {$set: {playing: true, finished: false}}, {multi: true});
+    Players.start();
     Games.startGame();
+  },
+  cancelWaitGame: function(_id) {
+    check(_id, String);
+    Players.remove({_id: _id});
   },
   clearGame: function() {
     Players.remove({});
@@ -38,6 +35,6 @@ Meteor.methods({
   },
   clickClickClick: function(_id) {
     check(_id, String);
-    Players.update({_id: _id}, {$inc: {clicks: 1}});
+    Players.click(_id);
   }
 });

@@ -1,14 +1,13 @@
-# Dale Bomba Play
+# Dale Bomba Game
 
-Game realtime para quem clica mais rápido!  
-Escrito em rapidamente com Meteor
+Game multiplayer realtime para competir quem clica mais rápido!  
+Desenvolvido em rapidamente com Meteor e Ionic :)
 
 ### Setup
 
 * Instale meteor - https://meteor.com/install
 * Inicie o server: `meteor`
 * Para competir acesse: `http://localhost:3000`
-* Para ser admin do game: `http://localhost:3000/admin`
 
 ### Autor
 

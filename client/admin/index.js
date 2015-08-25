@@ -1,9 +1,3 @@
-Template.admin.helpers({ 
-  canShowStartGame: function() {
-    return Players.find({}).count() >= 2;
-  }
-});
-
 Template.admin.events({
   "click button[data-clear]": function(e, template) {
     e.preventDefault();

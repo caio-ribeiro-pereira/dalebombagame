@@ -1,21 +1,29 @@
 <template name="admin">
-  <div class="row">
-    <div class="col-xs-12 col-md-8 col-md-offset-2">
-      <div class="jumbotron">
-        <h1 class="text-center">Dale Bomba Play</h1>
+  {{> header}}
+  {{#ionView}}
+    {{#ionContent}}
+      <div class="list padding">
         {{#if numberOfPlayers}}
-          <h3 class="text-center">{{numberOfPlayers}} player(s)</h3>
-          {{#if canShowStartGame}}
-            <p class="text-center">
-              <button class="btn btn-primary btn-block" data-start>COMEÇAR</button>
-            </p>
-          {{/if}}
+          <div class="button-bar">
+            {{#if canShowStartGame}}
+              <button class="button button-balanced button-block button-large ion-play" data-start>
+                COMEÇAR
+              </button>
+            {{/if}}
+            <button class="button button-assertive button-block button-large ion-android-delete" data-clear>
+              LIMPAR
+            </button>
+          </div>
           {{> ranking}}
-          <button class="btn btn-danger btn-block" data-clear>LIMPAR RANKING</button>
         {{else}}
-          <h3 class="text-center">Nenhum player na lista</h3>
+          <h3 class="text-center">
+            <i class="ion-sad bg-icon"></i>
+            <br>
+            Nenhum player na lista
+          </h3>
         {{/if}}
       </div>
-    </div>
-  </div>
+    {{/ionContent}}
+    {{> footer}}
+  {{/ionView}}
 </template>

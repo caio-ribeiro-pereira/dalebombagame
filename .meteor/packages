@@ -5,9 +5,11 @@
 # but you can also edit it by hand.
 
 meteor-platform
-kadira:flow-router
-kadira:blaze-layout
-meteorhacks:fast-render
-bootswatch:lumen
 momentjs:moment
 audit-argument-checks
+iron:router
+fourseven:scss@2.0.0
+meteoric:ionic-sass
+meteoric:ionicons-sass
+meteoric:ionic
+meteorhacks:fast-render

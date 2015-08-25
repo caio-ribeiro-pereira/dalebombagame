@@ -1,0 +1,19 @@
+<template name="finished">
+  <div class="list padding">
+    <h3 class="text-center dark">
+      {{#if isWinner}}           
+        Você ganhou com {{totalOfClicks}} clicks!
+        <br>
+        <i class="ion-android-happy bg-icon"></i>
+      {{else}}
+        Você perdeu!
+        <br>
+        <i class="ion-android-sad bg-icon"></i>
+      {{/if}}
+    </h3>
+    <br>
+    <button class="button button-large button-positive button-block ion-refresh" data-play-again>
+      JOGAR DENOVO?
+    </button>
+  </div>
+</template>

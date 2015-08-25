@@ -1,30 +1,6 @@
 Template.home.onRendered(function() {
-  var input = this.find("input")
+  var input = this.find("input");
   input && input.focus();
-});
-
-Template.home.helpers({
-  canPlay: function() {
-    return Games.canPlay();
-  },
-  isFinished: function() {
-    return Players.isFinished(Session.get("playerID"));
-  },
-  totalOfClicks: function() {
-    return Players.clicks(Session.get("playerID"));
-  },
-  isWinner: function() {
-    return Players.isWinner(Session.get("playerID"));
-  },
-  isPlaying: function() {
-    return Players.isPlaying(Session.get("playerID"));
-  },
-  isWaiting: function(){
-    var hasPlayers = !!Players.find({}).count();
-    var isNotPlaying = !Players.isPlaying(Session.get("playerID"));
-    var isWaiting = Session.get("waiting");
-    return isWaiting && isNotPlaying && hasPlayers;
-  }
 });
 
 Template.home.events({
@@ -50,9 +26,19 @@ Template.home.events({
     var input = template.find("input");
     Meteor.call("enterGame", input.value, function(err, id) {
       if (err) {
-        alert(err.message);
-        input.value = "";
-        input.focus();
+        IonPopup.show({
+          title: "Atenção",
+          template: err.reason,
+          buttons: [{
+            text: "Ok",
+            type: "button-positive",
+            onTap: function() {
+              input.value = "";
+              input.focus();   
+              IonPopup.close();
+            }
+          }]
+        });
       } else {
         Session.set("playerID", id);
         Session.set("waiting", true);
