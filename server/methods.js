@@ -2,7 +2,9 @@ Meteor.methods({
   enterGame: function(name) {
     check(name, String);
     name = name.toUpperCase().trim();
-    if (Players.findOne({name: name})) {
+    if (!name.length) {
+      throw new Meteor.Error(412, "Nome em branco");
+    } else if (Players.findOne({name: name})) {
       throw new Meteor.Error(412, "Este nome já existe, tente um novo nome");
     } else if (!Games.canPlay()) {
       throw new Meteor.Error(412, "Aguarde o próximo jogo!");
