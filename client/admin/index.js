@@ -4,13 +4,13 @@ Template.admin.events({
     Meteor.call("clearGame");
   },
   "click button[data-start]": function(e, template) {
-    var seconds = 30, intervalID;
+    var seconds = TIMER;
     var clear = template.find("button[data-clear]");
     e.preventDefault();
     e.target.disabled = true;
     clear.disabled = true;
     Meteor.call("startGame", function() {
-      intervalID = Meteor.setInterval(function() {
+      var intervalID = Meteor.setInterval(function() {
         if (seconds < 0) {
           Meteor.call("stopGame");
           e.target.disabled = false;

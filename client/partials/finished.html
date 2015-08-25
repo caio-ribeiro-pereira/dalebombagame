@@ -1,5 +1,9 @@
 <template name="finished">
   <div class="list padding">
+    <button class="button button-large button-positive button-block ion-refresh" data-play-again>
+      JOGAR DENOVO?
+    </button>
+    <br><br>
     <h3 class="text-center dark">
       {{#if isWinner}}           
         <i class="ion-trophy balanced bg-icon"></i>
@@ -11,9 +15,5 @@
         Você perdeu com {{totalOfClicks}} clicks
       {{/if}}
     </h3>
-    <br>
-    <button class="button button-large button-positive button-block ion-refresh" data-play-again>
-      JOGAR DENOVO?
-    </button>
   </div>
 </template>
