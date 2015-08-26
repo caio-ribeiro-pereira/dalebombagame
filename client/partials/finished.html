@@ -1,24 +1,20 @@
 <template name="finished">
   <div class="list padding">
-    <div class="button-bar">
-      <a href="{{pathFor route='ranking'}}" class="button button-large button-calm button-block ion-podium">
-        RANKING
-      </a>
-      <button class="button button-large button-positive button-block ion-refresh" data-play-again>
-        DENOVO?
-      </button>
-    </div>
+    <button class="button button-large button-positive button-block ion-refresh" data-play-again>
+      DENOVO?
+    </button>
     <br>
     <h4 class="text-center dark">
       {{#if isWinner}}           
-        <i class="ion-trophy balanced bg-icon"></i>
+        <i class="ion-trophy balanced"></i>
         <br>
         Você ganhou com {{totalOfClicks}} clicks!
       {{else}}
-        <i class="ion-android-sad dark bg-icon"></i>
+        <i class="ion-android-sad dark"></i>
         <br>
         Você perdeu com {{totalOfClicks}} clicks
       {{/if}}
     </h4>
+    {{> ranking}}
   </div>
 </template>

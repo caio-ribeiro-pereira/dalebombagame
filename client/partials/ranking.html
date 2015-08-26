@@ -1,10 +1,10 @@
-<template name="rankingList">
+<template name="ranking">
   <div class="list">
     <a href="#" class="item text-center">
       Ranking - {{numberOfPlayers}} player(s)
     </a>
     {{#each players}}
-      <a href="#" data-player-id="{{_id}}" class="item item-icon-left bg-effect">
+      <a class="item item-icon-left bg-effect {{playerHighlight _id}}">
         <i class="icon ion-thumbsup"></i>
         {{name}}
         <span class="badge badge-assertive">{{c}}</span>
