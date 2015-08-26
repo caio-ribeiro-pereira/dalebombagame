@@ -6,11 +6,11 @@
         {{#if numberOfPlayers}}
           <div class="button-bar">
             {{#if canShowStartGame}}
-              <button class="button button-balanced button-block button-large ion-play" data-start>
+              <button class="button button-balanced button-block button-large ion-play" data-start disabled="{{isGameNotRunning}}">
                 COMEÇAR
               </button>
             {{/if}}
-            <button class="button button-assertive button-block button-large ion-android-delete" data-clear>
+            <button class="button button-assertive button-block button-large ion-android-delete" data-clear disabled="{{isGameNotRunning}}">
               LIMPAR
             </button>
           </div>

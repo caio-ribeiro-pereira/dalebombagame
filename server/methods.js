@@ -16,20 +16,17 @@ Meteor.methods({
     check(_id, String);
     Players.replay(_id);
   },
-  stopGame: function() {
-    Players.winner();
-    Players.finish();
-    Games.stopGame();
-  },
   startGame: function() {
     Players.start();
     Games.startGame();
+    SyncedCron.start();
   },
   cancelWaitGame: function(_id) {
     check(_id, String);
     Players.remove({_id: _id});
   },
   clearGame: function() {
+    SyncedCron.pause();
     Players.remove({});
     Games.remove({});
   },

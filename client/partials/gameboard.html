@@ -3,18 +3,20 @@
     <h4 class="text-center dark">
       <i class="ion-speedometer bg-icon"></i>
       <br>
-      Tempo: <span data-timer></span>
+      Tempo: {{timeElapsed}}
       <br>
       {{clickStatus}}
     </h4>
-    <button class="button button-assertive button-xlarge button-block ion-android-sunny" data-click>
+    <button class="button button-assertive button-xlarge button-block ion-android-sunny" data-click disabled="{{isGameNotRunning}}">
       {{#if totalOfClicks}}
         {{totalOfClicks}} CLICKS
       {{else}}
-        CLIQUE AQUI!
+        CLIQUE AQUI
       {{/if}}
     </button>
-    <audio src="/sounds/click.mp3" preload="auto" data-mp3></audio>
-    <audio src="/sounds/click.ogg" preload="auto" data-ogg></audio>
+    <audio preload="auto">
+      <source src="/sounds/click.mp3">
+      <source src="/sounds/click.ogg">
+    </audio>
   </div>
 </template>

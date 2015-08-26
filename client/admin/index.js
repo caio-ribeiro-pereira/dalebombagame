@@ -4,23 +4,7 @@ Template.admin.events({
     Meteor.call("clearGame");
   },
   "click button[data-start]": function(e, template) {
-    var seconds = TIMER;
-    var clear = template.find("button[data-clear]");
     e.preventDefault();
-    e.target.disabled = true;
-    clear.disabled = true;
-    Meteor.call("startGame", function() {
-      var intervalID = Meteor.setInterval(function() {
-        if (seconds < 0) {
-          Meteor.call("stopGame");
-          e.target.disabled = false;
-          clear.disabled = false;
-          e.target.textContent = "COMEÇAR";
-          Meteor.clearInterval(intervalID);
-        } else {
-          e.target.textContent = (seconds--);
-        }
-      }, 1000);
-    });
+    Meteor.call("startGame");
   }
 });

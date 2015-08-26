@@ -7,5 +7,5 @@ Meteor.publish("players", function(){
 });
 
 Meteor.publish("games", function() {
-  return Games.find({});
+  return Games.findCurrentGame();
 });

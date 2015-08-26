@@ -18,6 +18,14 @@ Template.registerHelper("canPlay", function() {
   return Games.canPlay();
 });
 
+Template.registerHelper("timeElapsed", function() {
+  return Games.timeElapsed();
+});
+
+Template.registerHelper("isGameNotRunning", function() {
+  return !Games.isRunning();
+});
+
 Template.registerHelper("isFinished", function() {
   return Players.isFinished(Session.get("playerID"));
 });
@@ -31,7 +39,7 @@ Template.registerHelper("totalOfClicks", function() {
 Template.registerHelper("clickStatus", function() {
   var clicks = Session.get("clicks");
   if (clicks <= 15) {
-    return "DALE! DALE BOMBA!";
+    return "DALE BOMBA!";
   } else if (clicks > 15 && clicks <= 30) {
     return "BOA! MUITO TOPZ!";
   } else if (clicks > 30 && clicks <= 60) {
