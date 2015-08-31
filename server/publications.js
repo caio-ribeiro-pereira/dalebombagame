@@ -3,7 +3,7 @@ Meteor.publish("player", function(_id){
 });
 
 Meteor.publish("players", function(){
-  return Players.findByMostClicked();
+  return Players.find({});
 });
 
 Meteor.publish("games", function() {

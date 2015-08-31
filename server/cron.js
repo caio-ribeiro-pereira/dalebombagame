@@ -7,7 +7,8 @@ SyncedCron.add({
     if (Games.timeWaiting()) {
       Games.refreshWait();
     } else {
-      if (Players.hasMoreThanOne()) {
+      var gameID = Games.currentID();
+      if (Players.hasMoreThanOne(gameID)) {
         if (Games.isRunning()) {
           if (Games.timeElapsed()) {
             Games.refreshGame();
@@ -15,7 +16,6 @@ SyncedCron.add({
             Players.winner();
             Players.finish();
             Games.stopGame();
-            SyncedCron.pause();
           } 
         } else {
           Players.start();
@@ -24,7 +24,6 @@ SyncedCron.add({
       } else {
         Players.clear();
         Games.stopGame();
-        SyncedCron.pause();
       }
     }
   }

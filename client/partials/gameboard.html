@@ -1,13 +1,11 @@
 <template name="gameboard">
   <div class="list padding">
     <h4 class="text-center dark">
-      <i class="ion-speedometer bg-icon"></i>
-      <br>
       Tempo: {{timeElapsed}}
       <br>
       {{clickStatus}}
     </h4>
-    <button class="button button-assertive button-xlarge button-block ion-android-sunny" data-click disabled="{{isGameNotRunning}}">
+    <button class="button button-assertive button-xlarge button-block ion-android-sunny" data-click>
       {{#if totalOfClicks}}
         {{totalOfClicks}} CLICKS
       {{else}}

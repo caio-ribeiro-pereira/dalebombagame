@@ -4,9 +4,12 @@
     {{#ionContent}}
       <div class="list padding">
         {{#if numberOfPlayers}}
-          <button class="button button-assertive button-block button-large ion-android-delete" data-clear disabled="{{isGameNotRunning}}">
+          <button class="button button-assertive button-block button-large ion-android-delete" data-clear>
             LIMPAR
           </button>
+          <a href="#" class="item text-center">
+            {{numberOfPlayers}} player(s)
+          </a>
           {{> ranking}}
         {{else}}
           <h4 class="text-center dark">

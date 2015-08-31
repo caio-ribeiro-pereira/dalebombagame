@@ -11,27 +11,20 @@ Meteor.methods({
     } else if (Games.isRunning()) {
       throw new Meteor.Error(412, "Aguarde o próximo jogo!");
     } else {
-      if (!Games.exists()) {
-        Games.start();
-        SyncedCron.start();
-      }
-      return Players.create(name);
+      var gameID = Games.start();
+      return Players.create(name, gameID);
     }
   },
   replayGame: function(_id) {
     check(_id, String);
-    Players.replay(_id);
-    if (!Games.exists()) {
-      Games.start();
-      SyncedCron.start();
-    }
+    var gameID = Games.start();
+    Players.replay(_id, gameID);
   },
   cancelWaitGame: function(_id) {
     check(_id, String);
     Players.remove({_id: _id});
   },
   clearGame: function() {
-    SyncedCron.pause();
     Players.clear();
     Games.stopGame();
   },
