@@ -1,11 +1,7 @@
 <template name="finished">
   <div class="list padding">
-    <button class="button button-large button-positive button-block ion-refresh" data-play-again>
-      DENOVO?
-    </button>
-    <br>
     <h4 class="text-center dark">
-      {{#if isWinner}}           
+      {{#if isWinner}}
         <i class="ion-trophy balanced"></i>
         <br>
         Você ganhou com {{totalOfClicks}} clicks!
@@ -16,5 +12,9 @@
       {{/if}}
     </h4>
     {{> ranking}}
+    <br>
+    <button class="button button-large button-positive button-block ion-refresh" data-play-again>
+      DENOVO?
+    </button>
   </div>
 </template>
